@@ -18,6 +18,7 @@ typedef struct s_op {
 	float	width;
 	float	height;
 	char	shape_char;
+	int		scan_ret;
 }	t_op;
 
 # include "read_utils.h"

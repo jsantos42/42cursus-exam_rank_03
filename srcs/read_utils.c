@@ -23,7 +23,8 @@ int	read_file_and_print(char *arg)
 		else if (op.fill_flag == 'r')
 			draw_contour(&info, &op, matrix);
 	}
-	print_matrix(&info, matrix);
+	if (op.scan_ret == -1)
+		print_matrix(&info, matrix);
 	free_matrix(matrix, info.height);
 	return (fscanf(file, "%*d") == EOF);
 }
@@ -41,10 +42,10 @@ static int	get_info(FILE *file, t_info *info)
 
 static int	get_op(FILE *file, t_info *info, t_op *op)
 {
-	if (fscanf(file, "%c %f %f %f %f %c\n", &op->fill_flag, &op->start_x,
-			   &op->start_y, &op->width, &op->height, &op->shape_char) != 6)
-		return (0);
-	if ((op->fill_flag != 'r' && op->fill_flag != 'R')
+	op->scan_ret = fscanf(file, "%c %f %f %f %f %c\n", &op->fill_flag, &op->start_x,
+			   &op->start_y, &op->width, &op->height, &op->shape_char);
+	if (op->scan_ret != 6
+		|| (op->fill_flag != 'r' && op->fill_flag != 'R')
 		|| !is_in_range(op->start_x, 0, info->width)
 		|| !is_in_range(op->start_y, 0, info->height)
 		|| !is_in_range(op->width, 0, info->width) || op->width == 0
