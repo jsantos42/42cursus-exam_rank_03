@@ -11,7 +11,7 @@ void	draw_full_shape(t_info *info, t_op *op, char **matrix)
 		x = -1;
 		while (++x < info->width)
 		{
-			if (sqrtf(powf((int)op->start_x, 2) + powf((int)op->start_x, 2)) <= op->radius)
+			if (sqrtf(powf(op->start_x - x, 2) + powf(op->start_y - y, 2)) <= op->radius)
 				matrix[y][x] = op->shape_char;
 		}
 	}
@@ -28,7 +28,7 @@ void	draw_contour(t_info *info, t_op *op, char **matrix)
 		x = -1;
 		while (++x < info->width)
 		{
-			if (sqrtf(powf((int)op->start_x, 2) + powf((int)op->start_x, 2)) <= op->radius)
+			if (sqrtf(powf(op->start_x - x, 2) + powf(op->start_y - y, 2)) <= op->radius)
 				matrix[y][x] = op->shape_char;
 		}
 	}
