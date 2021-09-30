@@ -13,7 +13,8 @@ Write a program that will read an "operation file" and print the result in the t
 Your program must take one argument, it will be the path to the "operation file"
 If 0 or more than 1 argument is given to your program write "Error: argument" followed by a \n in STDOUT
 
-```$> ./micro_paint | cat -e
+```
+$> ./micro_paint | cat -e
 Error: argument$
 $> ./micro\_paint do not fear mathematics | cat -e
 Error: argument$
@@ -30,14 +31,18 @@ The last line can be with or without a \n
 The lines must be read in order and therefore operations must be executed in the same order
 There must be at least one space between each variable in a line
 
-```WIDTH HEIGHT BACKGROUND_CHAR```
+```
+WIDTH HEIGHT BACKGROUND_CHAR
+```
 This line is always the first line of the file and it defines the zone where to draw. Your program should not display anything outside the draw zone. It must be there only once.
 
 - WIDTH: must be a int with 0 < WIDTH <= 300, the horizontal number of characters to use for the draw zone
 - HEIGHT: must be a int with 0 < HEIGHT <= 300, the vertical number of characters to use for the draw zone 
 - BACKGROUND\_CHAR: any empty space will be filled with BACKGROUND\_CHAR
 
-```r X Y WIDTH HEIGHT CHAR```
+```
+r X Y WIDTH HEIGHT CHAR
+```
 This operation will draw an empty rectangle, where only the border of the rectangle is drawn
 
 - r: the character r
@@ -47,7 +52,9 @@ This operation will draw an empty rectangle, where only the border of the rectan
 - HEIGHT: a positive float but not 0, the height of the rectangle (vertical)
 - CHAR: the char use to draw the rectangle
 
-```R X Y WIDTH HEIGHT CHAR```
+```
+R X Y WIDTH HEIGHT CHAR
+```
 This operation will draw a filled rectangle
 
 - R: the character R
