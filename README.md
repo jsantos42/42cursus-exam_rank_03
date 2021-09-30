@@ -1,12 +1,10 @@
-# exam03\_micropaint
+# micropaint
 
-This project is on the Exam Rank 03.
+#### This project is on the Exam Rank 03. Here's the subject:
 
-### Subject:
-Assignment name  : micro\_paint
-Expected files   : \*.c \*.h
-
-Allowed functions: fopen, fread, fscanf, fclose, write, malloc, calloc, realloc, free, memset, powf, sqrtf
+*Assignment name: micro\_paint*
+*Expected files: \*.c \*.h*
+*Allowed functions: fopen, fread, fscanf, fclose, write, malloc, calloc, realloc, free, memset, powf, sqrtf*
 
 Write a program that will read an "operation file" and print the result in the terminal
 
