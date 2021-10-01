@@ -11,10 +11,8 @@ void	draw_full_shape(t_info *info, t_op *op, char **matrix)
 		x = -1;
 		while (++x < info->width)
 		{
-			if (x >= (int)op->start_x + 1
-				&& x <= (int)(op->start_x + op->width)
-				&& y >= (int)op->start_y + 1
-				&& y <= (int)(op->start_y + op->height))
+			if (x >= op->start_x && x <= op->start_x + op->width
+				&& y >= op->start_y && y <= op->start_y + op->height)
 				matrix[y][x] = op->shape_char;
 		}
 	}
@@ -31,8 +29,10 @@ void	draw_contour(t_info *info, t_op *op, char **matrix)
 		x = -1;
 		while (++x < info->width)
 		{
-			if (((x == (int)op->start_x + 1 || x == (int)op->start_x + op->width) && y >= (int)op->start_y + 1 && y <= (int)op->start_y + op->height)
-				|| ((y == (int)op->start_y + 1 || y == (int)op->start_y + op->height) && x >= (int)op->start_x + 1 && x <= (int)op->start_x + op->width))
+			if (x >= op->start_x && x <= op->start_x + op->width
+				&& y >= op->start_y && y <= op->start_y + op->height
+				&& (x <= op->start_x + 1 || x >= op->start_x + op->width - 1
+			   || y <= op->start_y + 1 || y >= op->start_y + op->height - 1))
 				matrix[y][x] = op->shape_char;
 		}
 	}
