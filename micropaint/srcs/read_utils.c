@@ -11,9 +11,9 @@ int	read_file_and_print(char *arg)
 	char	**matrix;
 
 	file = fopen(arg, "r");
-	if (!file || !get_info(file, &info))
-		return (0);
-	if (!init_matrix(&matrix, info.height, info.width)
+	if (!file
+		|| !get_info(file, &info)
+		|| !init_matrix(&matrix, info.height, info.width)
 		|| !fill_matrix(&matrix, info.height, info.width, info.bg_char))
 		return (0);
 	while (get_op(file, &op))
@@ -23,11 +23,11 @@ int	read_file_and_print(char *arg)
 		else if (op.fill_flag == 'r')
 			draw_contour(&info, &op, matrix);
 	}
-	if (op.scan_ret == -1)
+	if (op.scan_ret == EOF)
 	{
 		print_matrix(&info, matrix);
 		free_matrix(matrix, info.height);
-		return (fscanf(file, "%*d") == EOF);
+		return (1);
 	}
 	else
 	{
