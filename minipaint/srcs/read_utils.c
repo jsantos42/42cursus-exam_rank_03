@@ -18,9 +18,9 @@ int	read_file_and_print(char *arg)
 		return (0);
 	while (get_op(file, &op))
 	{
-		if (op.fill_flag == 'R')
+		if (op.fill_flag == 'C')
 			draw_full_shape(&info, &op, matrix);
-		else if (op.fill_flag == 'r')
+		else if (op.fill_flag == 'c')
 			draw_contour(&info, &op, matrix);
 	}
 	if (op.scan_ret == -1)
