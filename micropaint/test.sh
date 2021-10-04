@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TEST_FILE="file1"
+TEST_FILE="operation_file"
 
 rm diff*
 
